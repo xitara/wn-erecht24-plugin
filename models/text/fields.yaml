@@ -1,0 +1,8 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: 'xitara.erecht24::lang.models.general.id'
+        disabled: true

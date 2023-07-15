@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: 'xitara.erecht24::lang.models.text.label'
+
+# Model Form Field configuration
+form: $/xitara/erecht24/models/text/fields.yaml
+
+# Model Class name
+modelClass: Xitara\ERecht24\Models\Text
+
+# Default redirect location
+defaultRedirect: xitara/erecht24/texts
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: xitara/erecht24/texts/update/:id
+    redirectClose: xitara/erecht24/texts
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: xitara/erecht24/texts
+    redirectClose: xitara/erecht24/texts
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

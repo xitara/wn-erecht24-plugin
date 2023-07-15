@@ -1,0 +1,24 @@
+{
+    "name": "xitara/wn-erecht24-plugin",
+    "type": "winter-plugin",
+    "description": "eRecht-24 Plugin for Winter CMS",
+    "keywords": ["winter", "cms", "erecht24", "plugin"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Manuel Burghammer",
+            "email": "manuel.burghammer@xitara.com",
+            "role": "Author"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "composer/installers": "~1.0",
+        "erecht24/rechtstexte-sdk": "<2.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    }
+}

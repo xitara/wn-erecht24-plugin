@@ -1,0 +1,97 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    section:
+        label: xitara.erecht24::lang.settings.section.label
+        comment: xitara.erecht24::lang.settings.section.comment
+        type: section
+        span: full
+
+tabs:
+    fields:
+        section_api:
+            label: xitara.erecht24::lang.settings.section_api.label
+            comment: xitara.erecht24::lang.settings.section_api.comment
+            tab: xitara.erecht24::lang.settings.tab.section_api
+            type: section
+            span: full
+        apikey:
+            label: xitara.erecht24::lang.settings.apikey.label
+            comment: xitara.erecht24::lang.settings.apikey.comment
+            tab: xitara.erecht24::lang.settings.tab.section_api
+            type: text
+            span: auto
+        test_apikey:
+            label: xitara.erecht24::lang.settings.test_apikey.label
+            comment: xitara.erecht24::lang.settings.test_apikey.comment
+            tab: xitara.erecht24::lang.settings.tab.section_api
+            type: partial
+            path: $/xitara/erecht24/models/settings/_test_apikey.htm
+            span: auto
+        docs:
+            label: xitara.erecht24::lang.settings.docs.label
+            comment: xitara.erecht24::lang.settings.docs.comment
+            tab: xitara.erecht24::lang.settings.tab.section_api
+            type: checkboxlist
+            quickselect: true
+            options:
+                imprint: Impressum
+                privacyPolicy: Datenschutzerklärung
+                privacyPolicySocialMedia: Datenschutzerklärung Social-Media
+            span: auto
+        langs:
+            label: xitara.erecht24::lang.settings.langs.label
+            comment: xitara.erecht24::lang.settings.langs.comment
+            tab: xitara.erecht24::lang.settings.tab.section_api
+            type: checkboxlist
+            quickselect: true
+            options:
+                de: deutsch
+                en: englisch
+            span: auto
+
+        section_poll:
+            label: xitara.erecht24::lang.settings.section_poll.label
+            comment: xitara.erecht24::lang.settings.section_poll.comment
+            tab: xitara.erecht24::lang.settings.tab.section_poll
+            type: section
+            span: full
+        interval:
+            label: xitara.erecht24::lang.settings.interval.label
+            comment: xitara.erecht24::lang.settings.interval.comment
+            tab: xitara.erecht24::lang.settings.tab.section_poll
+            type: dropdown
+            options:
+                daily: xitara.erecht24::lang.settings.daily
+                weekly: xitara.erecht24::lang.settings.weekly
+                monthly: xitara.erecht24::lang.settings.monthly
+            default: weekly
+            span: auto
+        is_pull_active:
+            label: xitara.erecht24::lang.settings.is_pull_active.label
+            comment: xitara.erecht24::lang.settings.is_pull_active.comment
+            tab: xitara.erecht24::lang.settings.tab.section_poll
+            type: switch
+            span: auto
+        pull_now:
+            label: xitara.erecht24::lang.settings.pull_now.label
+            comment: xitara.erecht24::lang.settings.pull_now.comment
+            tab: xitara.erecht24::lang.settings.tab.section_poll
+            type: partial
+            path: $/xitara/erecht24/models/settings/_pull_now.htm
+            span: auto
+
+        section_push:
+            label: xitara.erecht24::lang.settings.section_push.label
+            comment: xitara.erecht24::lang.settings.section_push.comment
+            tab: xitara.erecht24::lang.settings.tab.section_push
+            type: section
+            span: full
+        push_uri:
+            label: xitara.erecht24::lang.settings.push_uri.label
+            comment: xitara.erecht24::lang.settings.push_uri.comment
+            tab: xitara.erecht24::lang.settings.tab.section_push
+            type: text
+            span: auto
