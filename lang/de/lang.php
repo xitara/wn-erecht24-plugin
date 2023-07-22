@@ -2,19 +2,19 @@
 
 return [
     'plugin'   => [
-        'name'        => 'E-Recht24 Rechtstexte',
+        'name'        => 'eRecht24 Rechtstexte',
         'description' => 'Benachrichtigt über Änderungen und aktualisiert bei Bedarf die Rechtstexte',
         'author'      => 'Xitara SoftWerX - Manuel Burghammer',
         'icon'        => 'icon-balance-scale',
     ],
     'submenu'  => [
-        'label'       => 'E-Recht24 Rechtstexte',
+        'label'       => 'eRecht24 Rechtstexte',
         'description' => '',
     ],
     'settings' => [
-        'label' => 'E-Recht24',
+        'label' => 'eRecht24',
         'section'      => [
-            'label'   => 'Einstellungen für E-Recht24 Rechtstexte',
+            'label'   => 'Einstellungen für eRecht24 Rechtstexte',
             'comment' => '',
         ],
         'tab'          => [
@@ -28,7 +28,7 @@ return [
         ],
         'apikey'       => [
             'label'   => 'API-Key',
-            'comment' => 'Der API-Key muss auf der Seite von E-Recht24 angelegt werden.',
+            'comment' => 'Der API-Key muss auf der Seite von eRecht24 angelegt werden.',
         ],
         'test_apikey'  => [
             'label'   => 'API-Key testen',

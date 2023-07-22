@@ -13,6 +13,10 @@ Im Hauptverzeichnis deiner Winter CMS Installation führe folgenden Befehl aus:
 
 `git clone https://github.com/xitara/wn-erecht24-plugin.git plugins/xitara/erecht24`
 
+Migration starten mit
+
+`php artisan winter:up`
+
 Die Möglichkeit zur Installation per Composer folgt in Kürze.
 
 ## Konfiguration
@@ -45,13 +49,17 @@ Es stehen zwei Möglichkeiten zur Verfügung, um die Rechtstexte in die Seite ei
 This plugin allows you to retrieve legal texts from e-recht24 via the API. You can then use these texts on your website.
 
 ## Installation
-### Download Method
+### Download
 Download the plugin and unzip it into your Winter CMS plugin directory: `plugins/xitara/erecht24`
 
 ### Using Git
 In the main directory of your Winter CMS installation, execute the following command:
 
 `git clone https://github.com/xitara/wn-erecht24-plugin.git plugins/xitara/erecht24`
+
+Start migration with
+
+`php artisan winter:up`
 
 The option for installation via Composer will be available soon.
 

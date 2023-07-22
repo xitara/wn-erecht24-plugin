@@ -2,19 +2,19 @@
 
 return [
     'plugin'   => [
-        'name'        => 'E-Recht24 Legal Texts',
+        'name'        => 'eRecht24 Legal Texts',
         'description' => 'Notifies about changes and updates the legal texts as needed',
         'author'      => 'Xitara SoftWerX - Manuel Burghammer',
         'icon'        => 'icon-balance-scale',
     ],
     'submenu'  => [
-        'label'       => 'E-Recht24 Legal Texts',
+        'label'       => 'eRecht24 Legal Texts',
         'description' => '',
     ],
     'settings' => [
-        'label' => 'E-Recht24',
+        'label' => 'eRecht24',
         'section'      => [
-            'label'   => 'Settings for E-Recht24 Legal Texts',
+            'label'   => 'Settings for eRecht24 Legal Texts',
             'comment' => '',
         ],
         'tab'          => [
@@ -28,7 +28,7 @@ return [
         ],
         'apikey'       => [
             'label'   => 'API Key',
-            'comment' => 'The API key must be created on the E-Recht24 website.',
+            'comment' => 'The API key must be created on the eRecht24 website.',
         ],
         'test_apikey'  => [
             'label'   => 'Test API Key',
