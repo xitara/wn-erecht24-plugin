@@ -2,7 +2,7 @@
 
 return [
     'plugin'   => [
-        'name'        => 'eRecht24 Rechtstexte',
+        'name'        => 'E-Recht24 Rechtstexte',
         'description' => 'Benachrichtigt über Änderungen und aktualisiert bei Bedarf die Rechtstexte',
         'author'      => 'Xitara SoftWerX - Manuel Burghammer',
         'icon'        => 'icon-balance-scale',
@@ -12,6 +12,7 @@ return [
         'description' => '',
     ],
     'settings' => [
+        'label' => 'E-Recht24',
         'section'      => [
             'label'   => 'Einstellungen für E-Recht24 Rechtstexte',
             'comment' => '',
