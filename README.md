@@ -17,7 +17,10 @@ Migration starten mit
 
 `php artisan winter:up`
 
-Die Möglichkeit zur Installation per Composer folgt in Kürze.
+### Per Composer
+Im Hauptverzeichnis deiner Winter CMS Installation führe folgenden Befehl aus:
+
+composer require xitara/wn-erecht24-plugin
 
 ## Konfiguration
 Rufe die Einstellungen unter `Einstellungen -> E-Recht24 -> E-Recht24 Rechtstexte` auf.
@@ -61,7 +64,10 @@ Start migration with
 
 `php artisan winter:up`
 
-The option for installation via Composer will be available soon.
+### Using composer
+In the main directory of your Winter CMS installation, execute the following command:
+
+composer require xitara/wn-erecht24-plugin
 
 ## Configuration
 Go to the settings under `Settings -> E-Recht24 -> E-Recht24 Legal Texts`.
