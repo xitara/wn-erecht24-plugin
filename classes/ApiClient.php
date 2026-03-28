@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Xitara\ERecht24\Classes;
 
-use Xitara\ERecht24\Models\Settings;
 use eRecht24\RechtstexteSDK\ApiHandler;
 use Input;
 use Log;
+use Xitara\ERecht24\Models\Settings;
 use Xitara\ERecht24\Models\Text;
 
 class ApiClient
@@ -27,6 +27,7 @@ class ApiClient
         $apiKey = Settings::get('apikey', null);
         if ($apiKey === null || $apiKey == '') {
             Log::critical('No api-key found. Aborting');
+
             return;
         }
 
@@ -43,9 +44,9 @@ class ApiClient
      * @date    2023-06-27T17:17:13+02:00
      * @version 0.0.1
      * @since   0.0.1
-     * @return  ApiHandler      api-handler object
+     * @return ApiHandler api-handler object
      */
-    public function getHandler(): ApiHandler
+    public function getHandler() : ApiHandler
     {
         return $this->apiHandler;
     }
@@ -57,9 +58,9 @@ class ApiClient
         if ($apiKey === null) {
             return [
                 'success' => false,
-                'code'    => null,
-                'body'    => null,
-                'error'   => 'no_api_key_found_in_post_data',
+                'code' => null,
+                'body' => null,
+                'error' => 'no_api_key_found_in_post_data',
             ];
         }
 
@@ -69,9 +70,9 @@ class ApiClient
 
         return [
             'success' => $result['success'],
-            'code'    => '',
-            'body'    => '',
-            'error'   => ($result['success'] === false) ? 'no_response_or_wrong_api_key' : '',
+            'code' => '',
+            'body' => '',
+            'error' => ($result['success'] === false) ? 'no_response_or_wrong_api_key' : '',
         ];
     }
 
@@ -82,21 +83,22 @@ class ApiClient
      * @date    2023-06-27T17:40:26+02:00
      * @version 0.0.1
      * @since   0.0.1
-     * @param   string $lang language-code, default "de"
+     * @param string $lang language-code, default "de"
      */
-    public static function imprint($lang = 'de') {
-        return (new self)->getImprint($lang);
+    public static function imprint($lang = 'de')
+    {
+        return (new self())->getImprint($lang);
     }
 
-    private function getImprint($lang): array
+    private function getImprint($lang) : array
     {
         $imprint = $this->apiHandler->getImprint();
         if (!$this->apiHandler->isLastResponseSuccess()) {
             return [
                 'success' => false,
-                'code'    => $this->apiHandler->getResponseCode(),
-                'body'    => $this->apiHandler->getResponseBody(),
-                'error'   => 'error_getting_imprint',
+                'code' => $this->apiHandler->getResponseCode(),
+                'body' => $this->apiHandler->getResponseBody(),
+                'error' => 'error_getting_imprint',
             ];
         }
 
@@ -105,9 +107,9 @@ class ApiClient
 
         return [
             'success' => true,
-            'code'    => $this->apiHandler->getResponseCode(),
-            'body'    => $this->apiHandler->getResponseBody(),
-            'error'   => 'no_error',
+            'code' => $this->apiHandler->getResponseCode(),
+            'body' => $this->apiHandler->getResponseBody(),
+            'error' => 'no_error',
         ];
     }
 
@@ -118,21 +120,22 @@ class ApiClient
      * @date    2023-06-27T17:40:26+02:00
      * @version 0.0.1
      * @since   0.0.1
-     * @param   string $lang language-code, default "de"
+     * @param string $lang language-code, default "de"
      */
-    public static function privacyPolicy($lang = 'de') {
-        return (new self)->getPrivacyPolicy($lang);
+    public static function privacyPolicy($lang = 'de')
+    {
+        return (new self())->getPrivacyPolicy($lang);
     }
 
-    private function getPrivacyPolicy($lang): array
+    private function getPrivacyPolicy($lang) : array
     {
         $privacy = $this->apiHandler->getPrivacyPolicy();
         if (!$this->apiHandler->isLastResponseSuccess()) {
             return [
                 'success' => false,
-                'code'    => $this->apiHandler->getResponseCode(),
-                'body'    => $this->apiHandler->getResponseBody(),
-                'error'   => 'error_getting_privacy_policy',
+                'code' => $this->apiHandler->getResponseCode(),
+                'body' => $this->apiHandler->getResponseBody(),
+                'error' => 'error_getting_privacy_policy',
             ];
         }
 
@@ -141,9 +144,9 @@ class ApiClient
 
         return [
             'success' => true,
-            'code'    => $this->apiHandler->getResponseCode(),
-            'body'    => $this->apiHandler->getResponseBody(),
-            'error'   => 'no_error',
+            'code' => $this->apiHandler->getResponseCode(),
+            'body' => $this->apiHandler->getResponseBody(),
+            'error' => 'no_error',
         ];
     }
 
@@ -154,21 +157,22 @@ class ApiClient
      * @date    2023-06-27T17:40:26+02:00
      * @version 0.0.1
      * @since   0.0.1
-     * @param   string $lang language-code, default "de"
+     * @param string $lang language-code, default "de"
      */
-    public static function privacyPolicySocialMedia($lang = 'de') {
-        return (new self)->getPrivacyPolicySocialMedia($lang);
+    public static function privacyPolicySocialMedia($lang = 'de')
+    {
+        return (new self())->getPrivacyPolicySocialMedia($lang);
     }
 
-    private function getPrivacyPolicySocialMedia($lang): array
+    private function getPrivacyPolicySocialMedia($lang) : array
     {
         $privacy = $this->apiHandler->getPrivacyPolicySocialMedia();
         if (!$this->apiHandler->isLastResponseSuccess()) {
             return [
                 'success' => false,
-                'code'    => $this->apiHandler->getResponseCode(),
-                'body'    => $this->apiHandler->getResponseBody(),
-                'error'   => 'error_getting_privacy_policy_social_media',
+                'code' => $this->apiHandler->getResponseCode(),
+                'body' => $this->apiHandler->getResponseBody(),
+                'error' => 'error_getting_privacy_policy_social_media',
             ];
         }
 
@@ -177,13 +181,13 @@ class ApiClient
 
         return [
             'success' => true,
-            'code'    => $this->apiHandler->getResponseCode(),
-            'body'    => $this->apiHandler->getResponseBody(),
-            'error'   => 'no_error',
+            'code' => $this->apiHandler->getResponseCode(),
+            'body' => $this->apiHandler->getResponseBody(),
+            'error' => 'no_error',
         ];
     }
 
-    private function updateText(string $name, string $lang, string $content): void
+    private function updateText(string $name, string $lang, string $content) : void
     {
         $text = Text::where('name', $name)->where('lang', $lang)->first();
 

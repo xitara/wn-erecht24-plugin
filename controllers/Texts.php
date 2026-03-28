@@ -1,7 +1,9 @@
-<?php namespace Xitara\ERecht24\Controllers;
+<?php
 
-use BackendMenu;
+namespace Xitara\ERecht24\Controllers;
+
 use Backend\Classes\Controller;
+use BackendMenu;
 
 /**
  * Texts Backend Controller

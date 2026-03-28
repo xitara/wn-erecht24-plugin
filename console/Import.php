@@ -2,10 +2,10 @@
 
 namespace Xitara\ERecht24\Console;
 
-use Winter\Storm\Console\Command;
-use Xitara\ERecht24\Models\Settings;
-use Xitara\ERecht24\Classes\ApiClient;
 use Log;
+use Winter\Storm\Console\Command;
+use Xitara\ERecht24\Classes\ApiClient;
+use Xitara\ERecht24\Models\Settings;
 
 class Import extends Command
 {
@@ -29,7 +29,7 @@ class Import extends Command
      *
      * @return void
      */
-    public function handle(): void
+    public function handle() : void
     {
         $langs = Settings::get('langs', null);
         $docs = Settings::get('docs', null);

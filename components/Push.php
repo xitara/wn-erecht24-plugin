@@ -1,4 +1,6 @@
-<?php namespace Xitara\ERecht24\Components;
+<?php
+
+namespace Xitara\ERecht24\Components;
 
 use Cms\Classes\ComponentBase;
 
@@ -10,8 +12,8 @@ class Push extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name'        => 'Push Component',
-            'description' => 'No description provided yet...'
+            'name' => 'Push Component',
+            'description' => 'No description provided yet...',
         ];
     }
 

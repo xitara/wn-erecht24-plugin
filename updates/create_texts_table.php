@@ -1,4 +1,6 @@
-<?php namespace Xitara\DynamicContent\Updates;
+<?php
+
+namespace Xitara\DynamicContent\Updates;
 
 use Schema;
 use Winter\Storm\Database\Schema\Blueprint;

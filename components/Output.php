@@ -1,4 +1,6 @@
-<?php namespace Xitara\ERecht24\Components;
+<?php
+
+namespace Xitara\ERecht24\Components;
 
 use Cms\Classes\ComponentBase;
 use Xitara\ERecht24\Models\Text;
@@ -11,8 +13,8 @@ class Output extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name'        => 'eRecht 24 Ausgabe',
-            'description' => 'Gibt einen einzelnen Rechtstext aus. Art des Dokumentes und Sprache müssen ausgewählt werden.'
+            'name' => 'eRecht 24 Ausgabe',
+            'description' => 'Gibt einen einzelnen Rechtstext aus. Art des Dokumentes und Sprache müssen ausgewählt werden.',
         ];
     }
 
@@ -23,9 +25,9 @@ class Output extends ComponentBase
     {
         return [
             'name' => [
-                'title'             => 'Text für Ausgabe',
+                'title' => 'Text für Ausgabe',
                 // 'description'       => 'FooBar',
-                'type'              => 'dropdown',
+                'type' => 'dropdown',
                 'default' => 'imprint',
                 'options' => [
                     'imprint' => 'Impressum',
@@ -34,9 +36,9 @@ class Output extends ComponentBase
                 ],
             ],
             'lang' => [
-                'title'             => 'Sprache',
+                'title' => 'Sprache',
                 // 'description'       => 'FooBar',
-                'type'              => 'dropdown',
+                'type' => 'dropdown',
                 'default' => 'de',
                 'options' => [
                     'de' => 'deutsch',
@@ -46,7 +48,8 @@ class Output extends ComponentBase
         ];
     }
 
-    public function onRender() {
+    public function onRender()
+    {
         $text = Text::select('text')
             ->where('name', $this->property('name'))
             ->where('lang', $this->property('lang'))
