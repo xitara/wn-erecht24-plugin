@@ -1,95 +1,127 @@
 **English version below**
 
-# Winter CMS Plugin für e-recht24
+# Winter-CMS-Plugin für eRecht24
 
-Mit diesem Plugin kannst du Rechtstexte von e-recht24 über die API abrufen. Du kannst die Texte dann auf deiner Website verwenden.
+Mit diesem Plugin kannst du Rechtstexte über die eRecht24-API abrufen und auf deiner Website verwenden.
 
 ## Installation
-### Per Download
-Lade das Plugin herunter und entpacke es in dein Winter CMS Plugin-Verzeichnis: `plugins/xitara/erecht24`
 
-### Mit Git
-Im Hauptverzeichnis deiner Winter CMS Installation führe folgenden Befehl aus:
+### Download
 
-`git clone https://github.com/xitara/wn-erecht24-plugin.git plugins/xitara/erecht24`
+Lade das Plugin herunter und entpacke es in das Plugin-Verzeichnis deiner Winter-CMS-Installation:
 
-Migration starten mit
+```text
+plugins/xitara/erecht24
+```
 
-`php artisan winter:up`
+### Git
 
-### Per Composer
-Im Hauptverzeichnis deiner Winter CMS Installation führe folgenden Befehl aus:
+Führe im Stammverzeichnis deiner Winter-CMS-Installation folgenden Befehl aus:
 
-`composer require xitara/wn-erecht24-plugin`
-`php artisan winter:up`
+```bash
+git clone https://github.com/xitara/wn-erecht24-plugin.git plugins/xitara/erecht24
+```
+
+Führe anschließend die Migrationen aus:
+
+```bash
+php artisan winter:up
+```
+
+### Composer
+
+Führe im Stammverzeichnis deiner Winter-CMS-Installation folgende Befehle aus:
+
+```bash
+composer require xitara/wn-erecht24-plugin
+php artisan winter:up
+```
 
 ## Konfiguration
-Rufe die Einstellungen unter `Einstellungen -> E-Recht24 -> E-Recht24 Rechtstexte` auf.
 
-Gib im geöffneten Installationsdialog deinen eRecht24 API-Schlüssel ein. Du findest diesen wie folgt:
+Öffne die Einstellungen unter `Einstellungen → E-Recht24 → E-Recht24 Rechtstexte`.
 
-1. Rufe den [eRecht24 Premium Projekt Manager](https://www.e-recht24.de/mitglieder/tools/projekt-manager/) auf.
-2. Klicke beim entsprechenden Projekt auf das Zahnrad-Symbol "Synchronisation". Nun kannst du entweder einen neuen API-Schlüssel generieren oder den vorhandenen API-Schlüssel kopieren.
+Trage im Einstellungsdialog deinen eRecht24-API-Schlüssel ein. Du findest ihn wie folgt:
 
-Mit dem Button "Test starten" kannst du den API-Schlüssel auf Funktionalität testen.
+1. Öffne den [eRecht24 Premium Projekt Manager](https://www.e-recht24.de/mitglieder/tools/projekt-manager/).
+2. Klicke beim gewünschten Projekt auf das Zahnradsymbol „Synchronisation“. Dort kannst du einen neuen API-Schlüssel erzeugen oder den vorhandenen API-Schlüssel kopieren.
 
-**WICHTIG:** Aktuell wird für den Test das deutsche Impressum abgerufen. Damit der Test nicht fehlschlägt, muss dieses zwingend eingerichtet sein.
+Über die Schaltfläche „Test starten“ kannst du prüfen, ob der API-Schlüssel funktioniert.
 
-Bei den Dokumenten und Sprachen muss mindestens jeweils ein Punkt ausgewählt sein.
+**WICHTIG:** Für den Test wird derzeit das deutsche Impressum abgerufen. Damit der Test erfolgreich ist, muss es bei eRecht24 eingerichtet sein.
 
-Im Tab "Polling" kann dann der eigentliche Import der ausgewählten Dokumente in die Datenbank erfolgen. Der automatische Abruf per Intervall ist aktuell noch nicht funktionsfähig. Ebenso hat die Einstellung im Tab "Push-Service" noch keine Funktionalität.
+Bei den Dokumenten und Sprachen muss jeweils mindestens eine Option ausgewählt werden.
 
-## Einbinden in eine Seite
-Es stehen zwei Möglichkeiten zur Verfügung, um die Rechtstexte in die Seite einzubinden.
+Im Tab „Polling“ können die ausgewählten Dokumente in die Datenbank importiert werden. Der automatische Abruf in Intervallen ist derzeit noch nicht funktionsfähig. Auch die Einstellung im Tab „Push-Service“ hat noch keine Funktion.
 
-1. Per Komponente in eine CMS-Seite: Ziehe einfach die Komponente `ERECHT24 RECHTSTEXTE -> eRecht 24 Ausgabe` in den Editor an die gewünschte Stelle und wähle in den Einstellungen Sprache und Art des Dokuments aus.
+## In eine Seite einbinden
 
-2. Per Snippet in eine statische Seite: Öffne die Seite, klicke mit der Maus an die Position, an der das Snippet eingefügt werden soll, und klicke dann auf `Snippets -> eRecht 25 Ausgabe`. Anschließend kannst du in den Einstellungen Sprache und Art des Dokuments auswählen.
+Du kannst die Rechtstexte auf zwei Arten in eine Seite einbinden:
+
+1. **Als Komponente in einer CMS-Seite:** Ziehe die Komponente `ERECHT24 RECHTSTEXTE → eRecht 24 Ausgabe` im Editor an die gewünschte Position. Wähle anschließend in den Einstellungen die Sprache und den Dokumenttyp aus.
+
+2. **Als Snippet in einer statischen Seite:** Öffne die Seite und positioniere den Cursor an der Stelle, an der das Snippet eingefügt werden soll. Wähle anschließend `Snippets → eRecht 24 Ausgabe` und lege in den Einstellungen die Sprache und den Dokumenttyp fest.
 
 ---
 
-# Winter CMS Plugin for e-recht24
+# Winter CMS Plugin for eRecht24
 
-This plugin allows you to retrieve legal texts from e-recht24 via the API. You can then use these texts on your website.
+This plugin lets you retrieve legal texts through the eRecht24 API and use them on your website.
 
 ## Installation
+
 ### Download
-Download the plugin and unzip it into your Winter CMS plugin directory: `plugins/xitara/erecht24`
 
-### Using Git
-In the main directory of your Winter CMS installation, execute the following command:
+Download the plugin and extract it to the plugin directory of your Winter CMS installation:
 
-`git clone https://github.com/xitara/wn-erecht24-plugin.git plugins/xitara/erecht24`
+```text
+plugins/xitara/erecht24
+```
 
-Start migration with
+### Git
 
-`php artisan winter:up`
+Run the following command from the root directory of your Winter CMS installation:
 
-### Using composer
-In the main directory of your Winter CMS installation, execute the following command:
+```bash
+git clone https://github.com/xitara/wn-erecht24-plugin.git plugins/xitara/erecht24
+```
 
-`composer require xitara/wn-erecht24-plugin`
-`php artisan winter:up`
+Then run the migrations:
+
+```bash
+php artisan winter:up
+```
+
+### Composer
+
+Run the following commands from the root directory of your Winter CMS installation:
+
+```bash
+composer require xitara/wn-erecht24-plugin
+php artisan winter:up
+```
 
 ## Configuration
-Go to the settings under `Settings -> E-Recht24 -> E-Recht24 Legal Texts`.
 
-In the opened installation dialog, enter your eRecht24 API key. You can find it as follows:
+Open `Settings → E-Recht24 → E-Recht24 Legal Texts`.
 
-1. Visit the [eRecht24 Premium Project Manager](https://www.e-recht24.de/mitglieder/tools/projekt-manager/).
-2. Click the gear icon "Synchronization" for the corresponding project. You can then either generate a new API key or copy the existing API key.
+Enter your eRecht24 API key in the settings dialog. You can find it as follows:
 
-Use the "Start Test" button to test the API key's functionality.
+1. Open the [eRecht24 Premium Project Manager](https://www.e-recht24.de/mitglieder/tools/projekt-manager/).
+2. Click the gear icon labeled “Synchronization” for the relevant project. From there, you can generate a new API key or copy the existing one.
 
-**IMPORTANT:** Currently, the German imprint is fetched for the test. To ensure the test does not fail, it must be set up accordingly.
+Use the “Start Test” button to verify that the API key works.
 
-For the documents and languages, at least one point must be selected.
+**IMPORTANT:** The test currently retrieves the German imprint. To complete the test successfully, the German imprint must be configured in eRecht24.
 
-In the "Polling" tab, the actual import of the selected documents into the database can be done. The automatic retrieval per interval is currently not functional. Similarly, settings in the "Push-Service" tab do not have any functionality yet.
+At least one document and one language must be selected.
 
-## Integrating into a Page
-Two methods are available to integrate the legal texts into a page.
+You can import the selected documents into the database from the “Polling” tab. Automatic retrieval at configured intervals is not yet functional. The settings on the “Push Service” tab are not functional yet either.
 
-1. Using a component in a CMS page: Simply drag the `ERECHT24 LEGAL TEXTS -> eRecht 24 Output` component into the editor at the desired location and choose the language and type of document in the settings.
+## Integrating the Texts into a Page
 
-2. Using a snippet in a static page: Open the page, click with the mouse at the position where the snippet should be inserted, and then click on `Snippets -> eRecht 25 Output`. You can then select the language and type of document in the settings.
+You can integrate the legal texts into a page in two ways:
+
+1. **As a component on a CMS page:** Drag the `ERECHT24 LEGAL TEXTS → eRecht 24 Output` component to the desired position in the editor. Then select the language and document type in the settings.
+
+2. **As a snippet on a static page:** Open the page and place the cursor where you want to insert the snippet. Then select `Snippets → eRecht 24 Output` and choose the language and document type in the settings.

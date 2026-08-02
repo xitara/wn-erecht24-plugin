@@ -2,6 +2,8 @@
 # Edit at https://www.gitignore.io/?templates=osx,node,macos,windows,composer
 
 ### Custom ###
+/AGENTS.md
+/docs
 build
 stats.json
 assets
@@ -16,6 +18,8 @@ yarn.lock
 *sublime-*
 *sftp-config*
 /bash/config.sh
+*.code-workspace
+.vscode
 
 ### Composer ###
 composer.lock
