@@ -1,0 +1,21 @@
+@use 'sass:meta';
+
+/*
+ * Keep the cascade order identical to the separate Tailwind entrypoint.
+ * Bootstrap owns the reset; Tailwind Preflight is intentionally disabled.
+ */
+@layer theme, base, bootstrap, components, utilities;
+
+@layer bootstrap {
+    @include meta.load-css('abstracts/bootstrap');
+}
+
+/* Optional project modules */
+// @layer components { @include meta.load-css('partials/header'); }
+// @layer components { @include meta.load-css('partials/body'); }
+// @layer components { @include meta.load-css('partials/footer'); }
+// @layer components { @include meta.load-css('partials/froala'); }
+// @layer components { @include meta.load-css('partials/glightbox'); }
+// @layer components { @include meta.load-css('partials/simplebar'); }
+// @layer components { @include meta.load-css('partials/slider'); }
+// @layer components { @include meta.load-css('abstracts/fonts'); }
