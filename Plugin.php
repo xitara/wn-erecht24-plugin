@@ -7,10 +7,12 @@ use Artisan;
 use Backend;
 use Backend\Models\UserRole;
 use Flash;
+use Input;
 use System\Classes\PluginBase;
 use System\Classes\PluginManager;
 use System\Controllers\Settings as SettingsController;
 use Xitara\ERecht24\Classes\ApiClient;
+use Xitara\ERecht24\Classes\PushClientManager;
 use Xitara\ERecht24\Models\Settings;
 
 /**
@@ -69,8 +71,78 @@ class Plugin extends PluginBase
                     Artisan::call('erecht:import');
 
                     Flash::success(e(trans('xitara.erecht24::lang.flash.success')));
-                } catch (Exception $e) {
+                } catch (\Exception $e) {
                     Flash::error(e(trans('xitara.erecht24::lang.flash.error')));
+                }
+            });
+
+            $controller->addDynamicMethod('onRegisterPush', function () {
+                try {
+                    $result = (new PushClientManager())->register(
+                        ApiClient::getSubmittedCredentialMode()
+                    );
+                    $this->flashPushResult($result);
+
+                    return ['clients_text' => $result['clients_text'] ?? ''];
+                } catch (\Throwable $exception) {
+                    Flash::error(e($exception->getMessage()));
+                }
+            });
+
+            $controller->addDynamicMethod('onUnregisterPush', function () {
+                try {
+                    $result = (new PushClientManager())->unregister();
+                    $this->flashPushResult($result);
+
+                    return ['clients_text' => $result['clients_text'] ?? ''];
+                } catch (\Throwable $exception) {
+                    Flash::error(e($exception->getMessage()));
+                }
+            });
+
+            $controller->addDynamicMethod('onTestPush', function () {
+                try {
+                    $type = (string) Input::get('Settings.push_test_type', 'ping');
+                    $uri = (string) Input::get(
+                        'Settings.push_uri',
+                        Settings::getPushUri()
+                    );
+                    $result = (new PushClientManager())->test(
+                        $type,
+                        $uri,
+                        ApiClient::getSubmittedCredentialMode()
+                    );
+                    $this->flashPushResult($result);
+
+                    return ['clients_text' => $result['clients_text'] ?? ''];
+                } catch (\Throwable $exception) {
+                    Flash::error(e($exception->getMessage()));
+                }
+            });
+
+            $controller->addDynamicMethod('onRefreshPushClients', function () {
+                try {
+                    $result = (new PushClientManager())->refreshClients(
+                        ApiClient::getSubmittedCredentialMode()
+                    );
+                    $this->flashPushResult($result);
+
+                    return ['clients_text' => $result['clients_text'] ?? ''];
+                } catch (\Throwable $exception) {
+                    Flash::error(e($exception->getMessage()));
+                }
+            });
+
+            $controller->addDynamicMethod('onUnregisterAllPushClients', function () {
+                try {
+                    $result = (new PushClientManager())->unregisterAll(
+                        ApiClient::getSubmittedCredentialMode()
+                    );
+                    $this->flashPushResult($result);
+
+                    return ['clients_text' => $result['clients_text'] ?? ''];
+                } catch (\Throwable $exception) {
+                    Flash::error(e($exception->getMessage()));
                 }
             });
         });
@@ -83,14 +155,22 @@ class Plugin extends PluginBase
     {
         return [
             'Xitara\ERecht24\Components\Output' => 'output',
-            'Xitara\ERecht24\Components\Push' => 'push',
         ];
     }
     public function registerPageSnippets() : array
     {
         return [
             'Xitara\ERecht24\Components\Output' => 'output',
-            'Xitara\ERecht24\Components\Push' => 'push',
+        ];
+    }
+
+    public function registerReportWidgets() : array
+    {
+        return [
+            'Xitara\ERecht24\ReportWidgets\LegalTextStatus' => [
+                'label' => 'xitara.erecht24::lang.dashboard.widget_title',
+                'context' => 'dashboard',
+            ],
         ];
     }
 
@@ -170,5 +250,18 @@ class Plugin extends PluginBase
             default:
                 break;
         }
+    }
+
+    private function flashPushResult(array $result) : void
+    {
+        $message = e((string) ($result['message'] ?? trans('xitara.erecht24::lang.flash.error')));
+
+        if (!empty($result['success'])) {
+            Flash::success($message);
+
+            return;
+        }
+
+        Flash::error($message);
     }
 }

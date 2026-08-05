@@ -1,0 +1,58 @@
+<div class="btn-group">
+    <button
+        id="Form-field-Settings-register_push"
+        class="btn btn-primary"
+        data-request="onRegisterPush"
+        data-request-success="if (data.clients_text !== undefined) $('#Form-field-Settings-registered_clients').val(data.clients_text)"
+        data-request-flash
+        data-stripe-load-indicator
+        data-attach-loading>
+        <?= e(trans('xitara.erecht24::lang.settings.push_actions.register')); ?>
+    </button>
+    <button
+        id="Form-field-Settings-test_push"
+        class="btn btn-default"
+        data-request="onTestPush"
+        data-request-success="if (data.clients_text !== undefined) $('#Form-field-Settings-registered_clients').val(data.clients_text)"
+        data-request-flash
+        data-stripe-load-indicator
+        data-attach-loading>
+        <?= e(trans('xitara.erecht24::lang.settings.push_actions.test')); ?>
+    </button>
+    <button
+        id="Form-field-Settings-unregister_push"
+        class="btn btn-danger"
+        data-request="onUnregisterPush"
+        data-request-success="if (data.clients_text !== undefined) $('#Form-field-Settings-registered_clients').val(data.clients_text)"
+        data-request-confirm="<?= e(trans('xitara.erecht24::lang.settings.push_actions.unregister_confirm')); ?>"
+        data-request-flash
+        data-stripe-load-indicator
+        data-attach-loading>
+        <?= e(trans('xitara.erecht24::lang.settings.push_actions.unregister')); ?>
+    </button>
+    <button
+        id="Form-field-Settings-refresh_push_clients"
+        class="btn btn-default"
+        data-request="onRefreshPushClients"
+        data-request-success="if (data.clients_text !== undefined) $('#Form-field-Settings-registered_clients').val(data.clients_text)"
+        data-request-flash
+        data-stripe-load-indicator
+        data-attach-loading>
+        <?= e(trans('xitara.erecht24::lang.settings.push_actions.refresh_clients')); ?>
+    </button>
+    <button
+        id="Form-field-Settings-unregister_all_push_clients"
+        class="btn btn-danger"
+        data-request="onUnregisterAllPushClients"
+        data-request-success="if (data.clients_text !== undefined) $('#Form-field-Settings-registered_clients').val(data.clients_text)"
+        data-request-confirm="<?= e(trans('xitara.erecht24::lang.settings.push_actions.unregister_all_confirm')); ?>"
+        data-request-flash
+        data-stripe-load-indicator
+        data-attach-loading>
+        <?= e(trans('xitara.erecht24::lang.settings.push_actions.unregister_all')); ?>
+    </button>
+</div>
+
+<p class="help-block">
+    <?= e(trans('xitara.erecht24::lang.settings.push_actions.test_notice')); ?>
+</p>

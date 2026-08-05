@@ -31,21 +31,24 @@ class Import extends Command
      */
     public function handle() : void
     {
-        $langs = Settings::get('langs', null);
-        $docs = Settings::get('docs', null);
+        $langs = (array) Settings::get('langs', []);
+        $docs = (array) Settings::get('docs', []);
 
         Log::debug($langs);
         Log::debug($docs);
 
-        foreach ($langs as $lang) {
-            foreach ($docs as $doc) {
-                Log::debug($lang);
-                Log::debug($doc);
+        if ($langs === [] || $docs === []) {
+            Log::warning('No eRecht24 documents or languages configured.');
 
-                $result = ApiClient::{$doc}($lang);
+            return;
+        }
 
-                Log::debug($result);
-            }
+        foreach ($docs as $doc) {
+            Log::debug($doc);
+
+            $result = (new ApiClient())->importDocument($doc, $langs, 'pull');
+
+            Log::debug($result);
         }
     }
 }

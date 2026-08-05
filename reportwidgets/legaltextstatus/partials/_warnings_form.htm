@@ -1,0 +1,35 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="popup" aria-hidden="true">&times;</button>
+    <h4 class="modal-title"><?= e(trans('xitara.erecht24::lang.dashboard.warnings_title')) ?></h4>
+</div>
+<div class="modal-body">
+    <p><?= e(trans('xitara.erecht24::lang.dashboard.warnings_description')) ?></p>
+    <ul>
+        <?php foreach ($warnings as $warning): ?>
+            <li>
+                <strong><?= e($warning['label']) ?>:</strong>
+                <?= e((string) ($warning['message'] ?? '')) ?>
+                <?php if (!empty($warning['link']) && filter_var($warning['link'], FILTER_VALIDATE_URL)): ?>
+                    (<a href="<?= e($warning['link']) ?>" target="_blank" rel="noopener noreferrer">
+                        <?= e(!empty($warning['action']) ? $warning['action'] : trans('xitara.erecht24::lang.dashboard.open_link')) ?>
+                    </a>)
+                <?php endif ?>
+            </li>
+        <?php endforeach ?>
+    </ul>
+</div>
+<div class="modal-footer">
+    <?php if ($canAcknowledge): ?>
+        <button
+            type="button"
+            class="btn btn-primary"
+            data-request="<?= $this->getEventHandler('onAcknowledgeWarnings') ?>"
+            data-request-flash
+            data-dismiss="popup">
+            <?= e(trans('xitara.erecht24::lang.dashboard.acknowledge')) ?>
+        </button>
+    <?php endif ?>
+    <button type="button" class="btn btn-default" data-dismiss="popup">
+        <?= e(trans('backend::lang.form.close')) ?>
+    </button>
+</div>

@@ -17,12 +17,23 @@ tabs:
             tab: xitara.erecht24::lang.settings.tab.section_api
             type: section
             span: full
+        use_demo_credentials:
+            label: xitara.erecht24::lang.settings.use_demo_credentials.label
+            comment: xitara.erecht24::lang.settings.use_demo_credentials.comment
+            tab: xitara.erecht24::lang.settings.tab.section_api
+            type: switch
+            default: false
+            span: full
         apikey:
             label: xitara.erecht24::lang.settings.apikey.label
             comment: xitara.erecht24::lang.settings.apikey.comment
             tab: xitara.erecht24::lang.settings.tab.section_api
             type: text
             span: auto
+            trigger:
+                action: disable
+                field: use_demo_credentials
+                condition: checked
         test_apikey:
             label: xitara.erecht24::lang.settings.test_apikey.label
             comment: xitara.erecht24::lang.settings.test_apikey.comment
@@ -94,4 +105,46 @@ tabs:
             comment: xitara.erecht24::lang.settings.push_uri.comment
             tab: xitara.erecht24::lang.settings.tab.section_push
             type: text
+            span: full
+        is_push_active:
+            label: xitara.erecht24::lang.settings.is_push_active.label
+            comment: xitara.erecht24::lang.settings.is_push_active.comment
+            tab: xitara.erecht24::lang.settings.tab.section_push
+            type: switch
+            disabled: true
             span: auto
+        push_client_id:
+            label: xitara.erecht24::lang.settings.push_client_id.label
+            comment: xitara.erecht24::lang.settings.push_client_id.comment
+            tab: xitara.erecht24::lang.settings.tab.section_push
+            type: text
+            disabled: true
+            span: auto
+        push_test_type:
+            label: xitara.erecht24::lang.settings.push_test_type.label
+            comment: xitara.erecht24::lang.settings.push_test_type.comment
+            tab: xitara.erecht24::lang.settings.tab.section_push
+            type: dropdown
+            default: ping
+            options:
+                ping: xitara.erecht24::lang.settings.push_test_types.ping
+                message: xitara.erecht24::lang.settings.push_test_types.message
+                imprint: xitara.erecht24::lang.settings.push_test_types.imprint
+                privacyPolicy: xitara.erecht24::lang.settings.push_test_types.privacy_policy
+                privacyPolicySocialMedia: xitara.erecht24::lang.settings.push_test_types.privacy_policy_social_media
+            span: auto
+        registered_clients:
+            label: xitara.erecht24::lang.settings.registered_clients.label
+            comment: xitara.erecht24::lang.settings.registered_clients.comment
+            tab: xitara.erecht24::lang.settings.tab.section_push
+            type: textarea
+            size: small
+            disabled: true
+            span: full
+        push_actions:
+            label: xitara.erecht24::lang.settings.push_actions.label
+            comment: xitara.erecht24::lang.settings.push_actions.comment
+            tab: xitara.erecht24::lang.settings.tab.section_push
+            type: partial
+            path: $/xitara/erecht24/models/settings/_push_actions.htm
+            span: full
